@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  pb:
+    container_name: pb
+    build: ./
+    volumes:
+      - ./input/:/var/tmp/input/
+      - ./output/:/var/tmp/output/
+    tty: true
