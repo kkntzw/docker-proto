@@ -21,9 +21,20 @@ docker-compose up -d --build
 ```
 
 ## 生成
+1. [コマンドラインから生成する。](#コマンドラインから生成する)
+
+### コマンドラインから生成する
+```bash
+make generate
+```
+
+## 操作
 1. [コマンドラインから操作する。](#コマンドラインから操作する)
 
 ### コマンドラインから操作する
+`${PROTO_FILE}` にはファイル名を指定する。  
+`${GRPC_SERVER}` にはgRPCサーバのホスト名を指定する。  
+
 ```bash
-make generate
+docker compose exec evans evans --proto ${PROTO_FILE} --host ${GRPC_SERVER} repl
 ```
