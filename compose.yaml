@@ -1,0 +1,27 @@
+services:
+  protobuf:
+    build: ./protobuf/
+    container_name: protobuf
+    image: kkntzw/protobuf
+    networks:
+      - localhost
+    restart: always
+    tty: true
+    volumes:
+      - ./input/:/home/protobuf/input/
+      - ./output/:/home/protobuf/output/
+
+  evans:
+    build: ./evans/
+    container_name: evans
+    image: kkntzw/evans
+    networks:
+      - localhost
+    restart: always
+    tty: true
+    volumes:
+      - ./input/:/home/evans/proto/
+
+networks:
+  localhost:
+    external: true
